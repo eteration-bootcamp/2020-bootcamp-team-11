@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title> HTML & CSS & Javascript </title>
+        <meta name="description" content="">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div id="main">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="">
+                </div>
+                <nav>
+                    <ul>
+                        <li>Expertise</li>
+                        <li>Services</li>
+                        <li>Academy</li>
+                        <li>Events</li>
+                        <li>About Us</li>
+                        <li>Jobs</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="circle">
+                <!--Dairenin çevresi 2*pi*r = 1256 
+                -->
+                <svg height="402" width="402">
+                    <circle r="200" cx="201" cy="201" stroke-width="1px" stroke="gray" fill="none">
+                    </circle>
+                </svg>
+                <svg height="402" width="402">
+                    <circle r="200" cx="201" cy="201" stroke-width="1px" stroke="white" fill="none" id="svgCircle"></circle>
+                </svg>
+                <div>
+                    <span id="step1"></span>
+                    <span id="step2"></span>
+                    <span id="step3"></span>
+                    <span id="step4"></span>
+                    <span id="step5"></span>
+                </div>
+                <div class="user-box" id="userBox">
+                    <div class="user">
+                        <img src="./images/person1.jpg" alt="">
+                        <h3>Burçak Aysen Kalmuk</h3>
+                        <p>Product Manager & Software Development Engineer at Eteration</p>
+                        <div class="social-links">
+                            <img src="./images/facebook.png" alt="">
+                            <img src="./images/twitter.png" alt="">
+                            <img src="./images/linkedin.png" alt="">
+                            <img src="./images/instagram.png" alt="">
+                        </div>
+                    </div>
+                    <div class="user">
+                        <img src="./images/person2.jpg" alt="">
+                        <h3>Fatma Nurcan Çevik</h3>
+                        <p>Business Analyst at Eteration</p>
+                        <div class="social-links">
+                            <img src="./images/facebook.png" alt="">
+                            <img src="./images/twitter.png" alt="">
+                            <img src="./images/linkedin.png" alt="">
+                            <img src="./images/instagram.png" alt="">
+                        </div>
+                    </div>
+                    <div class="user">
+                        <img src="./images/person3.jpg" alt="">
+                        <h3>Erdem Seherler</h3>
+                        <p>Experienced IT Executive & Business Development Director & Agile Coach at Eteration</p>
+                        <div class="social-links">
+                            <img src="./images/facebook.png" alt="">
+                            <img src="./images/twitter.png" alt="">
+                            <img src="./images/linkedin.png" alt="">
+                            <img src="./images/instagram.png" alt="">
+                        </div>
+                    </div>
+                    <div class="user">
+                        <img src="./images/person4.jpg" alt="">
+                        <h3>Naci Dai</h3>
+                        <p>Founding Partner & Chief Scientist at Eteration</p>
+                        <div class="social-links">
+                            <img src="./images/facebook.png" alt="">
+                            <img src="./images/twitter.png" alt="">
+                            <img src="./images/linkedin.png" alt="">
+                            <img src="./images/instagram.png" alt="">
+                        </div>
+                    </div>
+                    <div class="user">
+                        <img src="./images/person5.jpg" alt="">
+                        <h3>Mehmet Tahir Aslan</h3>
+                        <p>Eteration Bootcamp 2020 Student</p>
+                        <div class="social-links">
+                            <img src="./images/facebook.png" alt="">
+                            <img src="./images/twitter.png" alt="">
+                            <img src="./images/linkedin.png" alt="">
+                            <img src="./images/instagram.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!--Dairenin çevresi 2*pi*r = 1256 
+                    Her bir circle arasındaki mesafe offseti' 1256 / 5 = 251
+                    1.adım 1256 - 251 = 1004
+                    2.adım 1004 - 251 = 753
+                    3.adım 753  - 251 = 502
+                    4.adım 502  - 251 = 251
+                    5.adım 251  - 251 = 0
+
+                    circle height 450 px o yuzden 
+                    1. adım   100 - 450 = -350px
+                    2. adım - 350 - 450 = -800px
+                    3. adım - 800 - 450 = -1250px
+                    4. adım - 1250- 450 = -1700px
+                    5. adım - 350 + 450 =  100px
+                -->
+        <script>
+            var svgCircle = document.getElementById("svgCircle");
+            var step1 = document.getElementById("step1");
+            var step2 = document.getElementById("step2");
+            var step3 = document.getElementById("step3");
+            var step4 = document.getElementById("step4");
+            var step5 = document.getElementById("step5");
+            var main = document.getElementById("main");
+            var userBox = document.getElementById("userBox");
+
+            main.style.backgroundImage="url(images/background.jpg)";
+            step1.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset="1004";
+                main.style.backgroundImage="url(images/background2.jpg)";
+                userBox.style.top="-350px";
+            });
+            step2.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset="753";
+                main.style.backgroundImage="url(images/background3.jpg)";
+                userBox.style.top="-800px";
+            });
+            step3.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset="502";
+                main.style.backgroundImage="url(images/background4.jpg)";
+                userBox.style.top="-1250px";
+            });
+            step4.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset="251";
+                main.style.backgroundImage="url(images/background5.jpg)";
+                userBox.style.top="-1700px";
+            });
+            step5.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset="0";
+                main.style.backgroundImage="url(images/background.jpg)";
+                userBox.style.top="100px";
+            });
+        </script>
+    </body>
+</html>
