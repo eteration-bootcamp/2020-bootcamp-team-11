@@ -1,14 +1,16 @@
-# 2020 Bootcamp Team 11 - `<team-name>`
+# 2020 Bootcamp Team 11
 
 ## Team Members
 
 | Role               | Name      |
 |--------------------|-----------|
-| Frontend Developer | John Doe  |
-| Backend Developer  | Jane Doe  |
+| Developer | Esra Memis  |
+| Developer  | Mehmet Tahir Aslan  |
+| Developer | Sena Uzun  |
+| Developer | Gorkem Altunay  |
+| Developer | Kuray Kanli  |
+| Developer | Erkin Semiz  |
 
 ## Project
 
-.
-.
-.
+TBA
