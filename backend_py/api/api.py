@@ -7,19 +7,25 @@ import os
 
 # Init Flask and DB variables.
 api = Flask(__name__)
-# api.config['SECRET_KEY'] = os.environ.get("SECRETKEY")
-# api.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DBLOCATION")
-api.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_env.db'
+api.config['SECRET_KEY'] = os.environ.get("SECRETKEY")
+api.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DBLOCATION")
+#api.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_env.db'
 api.config['JSON_SORT_KEYS'] = False
 api.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 api.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# api.config['SQLALCHEMY_ENGINE_OPTIONS'] = {'pool_size': 10, 'pool_recycle': 120, 'pool_pre_ping': True, 'pool_timeout': 3}
+api.config['SQLALCHEMY_ENGINE_OPTIONS'] = {'pool_size': 10, 'pool_recycle': 120, 'pool_pre_ping': True, 'pool_timeout': 3}
 db = SQLAlchemy(api)
 os.makedirs(os.path.dirname('../log/apipostlog.txt'), exist_ok=True)
 logging.basicConfig(filename='../log/apipostlog.log', level=logging.ERROR)
 
 from models import Job
 import crud
+
+@api.route('/api', methods=['GET'])
+@api.route('/api/', methods=['GET'])
+def index():
+    if request.method == 'GET':
+        return jsonify({"received:": 0}), 200
 
 # POST route for saving new Job Posting. Body must be in JSON format
 @api.route('/api/job', methods=['POST'])

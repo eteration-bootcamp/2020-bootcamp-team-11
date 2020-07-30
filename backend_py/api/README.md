@@ -1,19 +1,28 @@
-# Python Backend API
+# API
 
 README will be updated shortly. Meanwhile, please find API endpoints below with available request types.
 Apologies for no explanation and no formatting on README.
 
-GET:
+## Installation
+
+TBA
+
+## Usage
+
+TBA..
+
+### GET:
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job/<id>
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job/<id>/<param>
 http://eteration.germanywestcentral.cloudapp.azure.com/api/jobs
 
-POST:
+### POST:
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job
+
 JSON Example: '{"name": "Senior Python Engineer", "company": "Eteration International", "description": "Good Job!", "location": "London, UK", "contract": "Full Time", "tags": "python", "new": true, "featured": true}'
 
-PUT:
+### PUT:
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job/<id>
 
-DELETE:
+### DELETE:
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job/<id>
