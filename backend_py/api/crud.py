@@ -15,7 +15,7 @@ def get_job(jobid):
             return {"status": 404, "source": "DB"} 
         else:
             resultmod = result.as_dict()                    # Parse as dict for JSON response
-            resultmod["time"] = resultmod["time"].__str__() # Convert datetime object to string for JSON serial.
+            #resultmod["jobDate"] = resultmod["jobDate"].__str__() # Convert datetime object to string for JSON serial.
         return resultmod
     except Exception as exp:
         logging.exception("Exception:" + str(exp))
@@ -33,7 +33,7 @@ def put_job(jobid, receivedjson):
         for key, value in receivedjson.items():             # Iterate over JSON body sent via request
             setattr(result, key, value)                     # Change att. of current job object
         db.session.commit()                                 # Commit to database for persistance
-        return {"status": 200}
+        return result.as_dict()
     except Exception as exp:
         logging.exception("Exception:" + str(exp))
         return {"status": 404}
@@ -59,10 +59,10 @@ def get_jobs():
 
     :return dict: Returns dict of status
     """
-    all_jobs = {}
+    all_jobs = []
     try:
         for jobs in db.session.query(Job.id).order_by(Job.id.asc()):    # Query all job ids
-            all_jobs[jobs[0]] = get_job(jobs[0])                        # Assign id as key and details as value of temp variabile
+            all_jobs.append(get_job(jobs[0]))                        # Assign id as key and details as value of temp variabile
         return all_jobs
     except Exception as exp:
         logging.exception("Exception:" + str(exp))

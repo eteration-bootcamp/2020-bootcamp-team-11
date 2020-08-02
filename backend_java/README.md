@@ -13,7 +13,9 @@ TBA..
 
 ### GET:
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job/<id>
+
 http://eteration.germanywestcentral.cloudapp.azure.com/api/job/<id>/<param>
+
 http://eteration.germanywestcentral.cloudapp.azure.com/api/jobs
 
 ### POST:

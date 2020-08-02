@@ -9,9 +9,8 @@ import os
 api = Flask(__name__)
 api.config['SECRET_KEY'] = os.environ.get("SECRETKEY")
 api.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DBLOCATION")
-#api.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_env.db'
 api.config['JSON_SORT_KEYS'] = False
-api.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+#api.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 api.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api.config['SQLALCHEMY_ENGINE_OPTIONS'] = {'pool_size': 10, 'pool_recycle': 120, 'pool_pre_ping': True, 'pool_timeout': 3}
 db = SQLAlchemy(api)
@@ -21,22 +20,16 @@ logging.basicConfig(filename='../log/apipostlog.log', level=logging.ERROR)
 from models import Job
 import crud
 
-@api.route('/api', methods=['GET'])
-@api.route('/api/', methods=['GET'])
-def index():
-    if request.method == 'GET':
-        return jsonify({"received:": 0}), 200
-
 # POST route for saving new Job Posting. Body must be in JSON format
 @api.route('/api/job', methods=['POST'])
 def job_post_route():
     if request.method == 'POST': # Checks current requested method.
         try:
             receivedjson = request.get_json() # Parse body sent as JSON
-            jobdata = Job(receivedjson["name"], receivedjson["company"], receivedjson["description"], receivedjson["location"], receivedjson["contract"], receivedjson["tags"], receivedjson["new"], receivedjson["featured"], datetime.now(), False)
+            jobdata = Job(receivedjson["jobName"], receivedjson["jobCompany"], receivedjson["jobDescription"], receivedjson["jobLocation"], receivedjson["jobContract"], receivedjson["jobTags"], receivedjson["jobNew"], receivedjson["jobFeatured"], datetime.now().replace(microsecond=0))
             db.session.add(jobdata) # jobdata variable created from Job object above added to 
             db.session.commit() # Commit to database for persistance
-            return jsonify({"status": 201}), 201
+            return jsonify(jobdata.as_dict()), 200
         except Exception as exp:
             logging.exception("Exception:" + str(exp))
             return jsonify({"status": 404}), 404
