@@ -9,13 +9,21 @@ http://eteration.germanywestcentral.cloudapp.azure.com/api
 ```
 
 ## Installation & Local Usage
-###### JDK 8 and Maven is required. 
+###### JDK 8 and Maven is required.
 ```python
 # Build with Maven
-mvn clean install 
+mvn clean install
 
 # Start project (JAR build with Maven is already executable)
 target/jobsapi.jar
+```
+
+## Installation Using Docker
+```python
+# Build image from Dockerfile
+docker build . -t eteration.azurecr.io/javaapi:latest
+# Run Docker image
+docker run -d -p 82:82 eteration.azurecr.io/javaapi:latest
 ```
 
 ## API Endpoints Documentation
@@ -105,4 +113,3 @@ Body of Request:
 | :--- | :--- | :--- |
 | 200 | `OK` | {"status": 200}|
 | 404 | `Not Found` | {"status": 404}|
-

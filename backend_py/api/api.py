@@ -17,6 +17,7 @@ db = SQLAlchemy(api)
 os.makedirs(os.path.dirname('../log/apipostlog.txt'), exist_ok=True)
 logging.basicConfig(filename='../log/apipostlog.log', level=logging.ERROR)
 
+db.create_all()
 from models import Job
 import crud
 

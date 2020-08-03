@@ -24,6 +24,18 @@ gunicorn --timeout 120 --workers 1 --bind 0.0.0.0:81 api:api
 
 ```
 
+## Installation Using Docker
+```python
+# Build image from Dockerfile
+docker build . -t eteration.azurecr.io/api:latest
+# Run Docker image
+docker run -d -p 81:81 eteration.azurecr.io/api:latest
+
+# This endpoint runs on Azure Container Instances as an Example
+http://eterationapipy.westeurope.azurecontainer.io/api/jobs
+```
+
+
 ## API Endpoints Documentation
 ###### POST request for new job posting.
 ```
@@ -111,4 +123,3 @@ Body of Request:
 | :--- | :--- | :--- |
 | 200 | `OK` | {"status": 200}|
 | 404 | `Not Found` | {"status": 404}|
-
