@@ -1,0 +1,142 @@
+body {
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Nav */
+.nav {
+    height: 60px;
+    padding: 0px 20%;
+    background: #001d52;
+}
+.nav div {
+    color: #ffffff;
+    font-weight: lighter;
+    width: 160px;
+    text-align: right;
+    font-size: 22px;
+    float: right;
+    margin-top: 20px;
+}
+.nav div:hover{
+    color:#a9c7d3;
+}
+.nav .logo {
+    float: left;
+    background-color: rgb(229, 250, 240);
+    border-radius: 20px;
+}
+.nav .logo img{
+    width: auto;
+    height: 100px;
+}
+/* Header */
+.header {
+    padding: 50px 20% 0px 20%;
+    height: 300px;
+    text-align: center;
+    background-color: #ffffff;
+    margin-left:130.4px;
+    margin-right: 130.4px;
+}
+.header .header-text {
+    width: 100%;
+    float: left;
+    
+    /*color: white;*/
+    padding-top: 50px;
+}
+
+.header .header-text h2 {
+       color:#141931 ;
+       text-align: center;
+       font-size: 2.5rem;
+       font-weight: 300;
+       margin-bottom: 0.5rem;
+}
+
+.header-text.p {
+  
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+}
+
+.lead{
+    font-size: 1.25rem;
+    font-weight: 300;
+
+}
+.text-muted{
+    color: #6f7c88 
+}
+
+
+.header .header-img {
+    width: 50%;
+    float: right;
+}
+.header img {
+    width: auto;
+    height: 220px;
+}
+
+/* Products area */
+.products-area {
+    margin:20px;
+    padding: 0% 10% 10% 10%;
+    color:#292731;
+}
+.products-area .box {
+    width: 28%;
+    height:28%;
+    padding: 15px;
+    margin: 10px;
+    background-color: #e1e5f3;
+    float: left;
+    text-align: center;
+    border: 1px solid #dbebeb;
+}
+.products-area.box-row{
+margin:50px;
+padding-left: 50px;;
+}
+.products-area .box img {
+    width: 80%;
+    height:50%
+}
+.products-area .box .box-content {
+    height: 100%;
+    text-align: left;
+}
+.products-area .box .box-content p:nth-child(3) {
+   color: rgb(41, 139, 168);
+   font-weight: bold;
+}
+
+.products-area .box button{ 
+    width:20%;
+    text-align: left;
+    border: 1px solid #94b8b8;
+}
+
+.products-area .box button:hover{
+    color: #b2b3b2;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: #b2b3b2;
+    padding: 20px 20%;
+    color: white;
+    opacity: .9;
+}
+
+
+
+  
